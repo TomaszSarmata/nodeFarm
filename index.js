@@ -41,6 +41,7 @@ const replaceTemplate = (temp, product) => {
 
   if (!product.organic)
     output = output.replace((/{%NOT_ORGANIC%}/g, "not-organic"));
+  return output;
 };
 
 const tempOverview = fs.readFileSync(
