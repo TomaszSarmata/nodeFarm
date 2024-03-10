@@ -37,15 +37,22 @@ const server = http.createServer((req, res) => {
 
   const pathName = req.url;
 
+  // Overview Page
   if (pathName === "/" || pathName === "/overview") {
     res.end("This is the Overview");
+
+    //Product Page
   } else if (pathName === "/product") {
     res.end("This is the Product");
+
+    // API
   } else if (pathName === "/api") {
     res.writeHead(200, {
       "Content-type": "application/json",
     });
     res.end(data);
+
+    // Not Found
   } else {
     res.writeHead(404, {
       "Content-type": "text/html",
