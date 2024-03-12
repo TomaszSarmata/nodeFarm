@@ -61,13 +61,10 @@ const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "utf-8");
 const dataObject = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
-  console.log(req.url);
-  console.log(url.parse(req.url, true));
-
-  const pathName = req.url;
+  const { query, pathname } = url.parse(req.url, true); // using parse(req.url, true) we are creating an object and the object willl have query an pathName so we can grab it and save it in variables;
 
   // Overview Page
-  if (pathName === "/" || pathName === "/overview") {
+  if (pathname === "/" || pathname === "/overview") {
     res.writeHead(200, { "Content-type": "text/html" });
 
     const cardsHtml = dataObject
@@ -78,11 +75,11 @@ const server = http.createServer((req, res) => {
     res.end(output);
 
     //Product Page
-  } else if (pathName === "/product") {
+  } else if (pathname === "/product") {
     res.end("This is the Product");
 
     // API
-  } else if (pathName === "/api") {
+  } else if (pathname === "/api") {
     res.writeHead(200, {
       "Content-type": "application/json",
     });
