@@ -76,7 +76,7 @@ const server = http.createServer((req, res) => {
 
     //Product Page
   } else if (pathname === "/product") {
-    const product = dataObject[query.id];
+    const product = dataObject[query.id]; //so here we have an array so we gonna access either 1st or 2nd etc element as they come in order that is anologous to id (starting at 0)
     res.end("This is the Product");
 
     // API
