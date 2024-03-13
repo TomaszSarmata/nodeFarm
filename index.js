@@ -2,7 +2,7 @@ const fs = require("fs");
 const http = require("http");
 const url = require("url");
 
-require("slugify");
+const slugify = require("slugify");
 
 const replaceTemplate = require("./modules/replaceTemplate");
 
